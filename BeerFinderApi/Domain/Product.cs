@@ -18,8 +18,8 @@ namespace BeerFinderApi.Domain
         public string ExternalProductId  { get; set; }
         public string StockStatus  { get; set; }
         public string Shelf  { get; set; }
-        
-        // + GTIN 
-        // + Rating
+        public decimal Rating { get; set; }
+        public string GTIN { get; set; }
+
     }
 }

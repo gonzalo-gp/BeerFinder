@@ -14,5 +14,7 @@
     [EAN] NVARCHAR(250) NULL, 
     [ExternalProductId] NVARCHAR(250) NULL, 
     [StockStatus] NVARCHAR(250) NULL, 
-    [Shelf] NVARCHAR(250) NULL
+    [Shelf] NVARCHAR(250) NULL,
+    [Rating] DECIMAL(14, 1) NULL,
+    [GTIN] NVARCHAR(250) NULL
 )
