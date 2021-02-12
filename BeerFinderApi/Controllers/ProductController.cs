@@ -23,12 +23,31 @@ namespace BeerFinderApi.Controllers
         public IEnumerable<Product> All() => _context.Products.ToList();
 
         [HttpPost]
-        public async Task<Product> Create(Product pToCreate, CancellationToken  c)
+        public async Task<Product> Create(Product pToCreate, CancellationToken c)
         {
             await _context.Products.AddAsync(pToCreate, c);
             await _context.SaveChangesAsync(c);
 
             return pToCreate;
         }
+
+        [HttpPut("{Id}")]
+        public async Task<Product> Update(Product pToUpdate)
+        {
+            _context.Products.Update(pToUpdate);
+            await _context.SaveChangesAsync();
+
+            return pToUpdate;
+        }
+
+        [HttpDelete]
+        public async Task<Product> Delete(Product pToDelete)
+        {
+            _context.Products.Remove(pToDelete);
+            await _context.SaveChangesAsync();
+
+            return pToDelete;
+        }
+
     }
 }
