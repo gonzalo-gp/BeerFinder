@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "apis1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ApiManagement/service/BeerFinderApiapi/apis/BeerFinderApi",
+      "type": "apis.azure"
+    },
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/beerfinderapidbserver/databases/BeerFinderApi_db",
+      "type": "mssql.azure",
+      "connectionId": "BeerFinderContext",
+      "secretStore": "AzureAppSettings"
+    }
+  }
+}
