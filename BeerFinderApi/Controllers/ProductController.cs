@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BeerFinderApi.Domain;
 using BeerFinderApi.Persistence;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BeerFinderApi.Controllers
 {
@@ -22,6 +23,13 @@ namespace BeerFinderApi.Controllers
         [HttpGet]
         public IEnumerable<Product> All() => _context.Products.ToList();
 
+        [HttpGet("{Id}")]
+        public async Task<Product> Get(int id)
+        {
+            var prod =  await _context.Products.SingleOrDefaultAsync(p => p.Id == id);
+            return prod;
+        }
+
         [HttpPost]
         public async Task<Product> Create(Product pToCreate, CancellationToken c)
         {
@@ -31,7 +39,7 @@ namespace BeerFinderApi.Controllers
             return pToCreate;
         }
 
-        [HttpPut("{Id}")]
+        [HttpPut()]
         public async Task<Product> Update(Product pToUpdate)
         {
             _context.Products.Update(pToUpdate);
@@ -40,9 +48,10 @@ namespace BeerFinderApi.Controllers
             return pToUpdate;
         }
 
-        [HttpDelete]
-        public async Task<Product> Delete(Product pToDelete)
+        [HttpDelete("{Id}")]
+        public async Task<Product> Delete(int id)
         {
+            var pToDelete = new Product { Id = id };
             _context.Products.Remove(pToDelete);
             await _context.SaveChangesAsync();
 

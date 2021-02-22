@@ -7,11 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeerFinderApi", "BeerFinder
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Database", "Database\Database.sqlproj", "{A23CA6CE-6519-4126-B48D-46AD002AE0E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerFinderManagement.Server", "BeerFinderManagement\Server\BeerFinderManagement.Server.csproj", "{57DC3FBC-6A0E-4A8F-A327-8E3934CF59D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeerFinderManagement.Client", "BeerFinderManagement\Client\BeerFinderManagement.Client.csproj", "{66855A5A-8CA6-47F4-B58A-20858A0AA87D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerFinderManagement.Client", "BeerFinderManagement\Client\BeerFinderManagement.Client.csproj", "{66855A5A-8CA6-47F4-B58A-20858A0AA87D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerFinderManagement.Shared", "BeerFinderManagement\Shared\BeerFinderManagement.Shared.csproj", "{7DD990A6-F3BB-4F58-B7D2-901FBFDF5F59}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeerFinderManagement.Shared", "BeerFinderManagement\Shared\BeerFinderManagement.Shared.csproj", "{7DD990A6-F3BB-4F58-B7D2-901FBFDF5F59}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +27,6 @@ Global
 		{A23CA6CE-6519-4126-B48D-46AD002AE0E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A23CA6CE-6519-4126-B48D-46AD002AE0E0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A23CA6CE-6519-4126-B48D-46AD002AE0E0}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{57DC3FBC-6A0E-4A8F-A327-8E3934CF59D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{57DC3FBC-6A0E-4A8F-A327-8E3934CF59D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{57DC3FBC-6A0E-4A8F-A327-8E3934CF59D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{57DC3FBC-6A0E-4A8F-A327-8E3934CF59D9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{66855A5A-8CA6-47F4-B58A-20858A0AA87D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{66855A5A-8CA6-47F4-B58A-20858A0AA87D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66855A5A-8CA6-47F4-B58A-20858A0AA87D}.Release|Any CPU.ActiveCfg = Release|Any CPU
