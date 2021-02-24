@@ -1,11 +1,11 @@
 ﻿<EditForm Model="@product" OnValidSubmit="@OnValidSubmit">
     <DataAnnotationsValidator />
     <div class="form-group">
-        <label>Id :</label>
-        <div>
-            <InputNumber @bind-Value="@product.Id" />
-            <ValidationMessage For="@(() => product.Id)" />
-        </div>
+            <label>Id :</label>
+            <div>
+                <InputNumber @bind-Value="@product.Id" />
+                <ValidationMessage For="@(() => product.Id)" />
+            </div>
     </div>
     <div class="form-group ">
         <div>
@@ -27,6 +27,15 @@
     </div>
     <div class="form-group ">
         <div>
+            <label>Category :</label>
+            <div>
+                <InputText @bind-Value="@product.Category" />
+                <ValidationMessage For="@(() => product.Category)" />
+            </div>
+        </div>
+    </div>
+    <div class="form-group ">
+        <div>
             <label>Producer :</label>
             <div>
                 <InputText @bind-Value="@product.Producer" />
@@ -43,6 +52,100 @@
             </div>
         </div>
     </div>
+    <div class="form-group ">
+        <div>
+            <label>Country :</label>
+            <div>
+                <InputText @bind-Value="@product.Country" />
+                <ValidationMessage For="@(() => product.Country)" />
+            </div>
+        </div>
+    </div>
+    <div class="form-group ">
+        <div>
+            <label>Eco :</label>
+            <div>
+                <InputCheckbox @bind-Value="@product.IsEco" />
+                <ValidationMessage For="@(() => product.IsEco)" />
+            </div>
+        </div>
+    </div>
+    <div class="form-group ">
+        <div>
+            <label>Alcohol Percentage :</label>
+            <div>
+                <InputNumber @bind-Value="@product.AlcoholPercentage" />
+                <ValidationMessage For="@(() => product.AlcoholPercentage)" />
+            </div>
+        </div>
+    </div>
+    <div class="form-group ">
+        <div>
+            <label>Description :</label>
+            <div>
+                <InputText @bind-Value="@product.Description" />
+                <ValidationMessage For="@(() => product.Description)" />
+            </div>
+        </div>
+    </div>
+    <div class="form-group ">
+        <div>
+            <label>EAN :</label>
+            <div>
+                <InputText @bind-Value="@product.EAN" />
+                <ValidationMessage For="@(() => product.EAN)" />
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group ">
+        <div>
+            <label>ExternalProductId :</label>
+            <div>
+                <InputText @bind-Value="@product.ExternalProductId" />
+                <ValidationMessage For="@(() => product.ExternalProductId)" />
+            </div>
+        </div>
+    </div>
+    <div class="form-group ">
+        <div>
+            <label>StockStatus :</label>
+            <div>
+                <InputText @bind-Value="@product.StockStatus" />
+                <ValidationMessage For="@(() => product.StockStatus)" />
+            </div>
+        </div>
+    </div>
+    <div class="form-group ">
+        <div>
+            <label>Shelf :</label>
+            <div>
+                <InputText @bind-Value="@product.Shelf" />
+                <ValidationMessage For="@(() => product.Shelf)" />
+            </div>
+        </div>
+    </div>
+    <div class="form-group ">
+        <div>
+            <label>Rating :</label>
+            <div>
+                <InputNumber @bind-Value="@product.Rating" />
+                <ValidationMessage For="@(() => product.Rating)" />
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group ">
+        <div>
+            <label>GTIN :</label>
+            <div>
+                <InputText @bind-Value="@product.GTIN" />
+                <ValidationMessage For="@(() => product.GTIN)" />
+            </div>
+        </div>
+    </div>
+
+
 
     <button type="submit" class="btn btn-success">
         @ButtonText

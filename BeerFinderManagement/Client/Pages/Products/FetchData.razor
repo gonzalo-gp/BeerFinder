@@ -18,34 +18,58 @@ else if (products.Length == 0)
 }
 else
 {
-    <table class="table table-striped">
-        <thead>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Category</th>
+            <th>Producer</th>
+            <th>Volume</th>
+            <th>Country</th>
+            <th>Eco</th>
+            <th>% Alcohol</th>
+            <th>Description</th>
+            <th>EAN</th>
+            <th>Ref.Id</th>
+            <th>Stock</th>
+            <th>Shelf</th>
+            <th>Rating</th>
+            <th>GTIN</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Product prod in products)
+        {
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Producer</th>
-                <th>Volume</th>
-                <th></th>
+                <td>@prod.Id</td>
+                <td>@prod.Name</td>
+                <td>@prod.Type</td>
+                <td>@prod.Category</td>
+                <td>@prod.Producer</td>
+                <td>@prod.Volume</td>
+                <td>@prod.Country</td>
+                <td>@prod.IsEco</td>
+                <td>@prod.AlcoholPercentage</td>
+                <td>@prod.Description</td>
+                <td>@prod.EAN</td>
+                <td>@prod.ExternalProductId</td>
+                <td>@prod.StockStatus</td>
+                <td>@prod.Shelf</td>
+                <td>@prod.Rating</td>
+                <td>@prod.GTIN</td>
+                <td>
+                    <a class="btn btn-success" href="product/edit/@prod.Id">Edit</a>
+                </td>
+                <td>    
+                <button class="btn btn-danger" @onclick="@(() => Delete(prod.Id))">Delete</button>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach (Product prod in products)
-            {
-                <tr>
-                    <td>@prod.Id</td>
-                    <td>@prod.Name</td>
-                    <td>@prod.Type</td>
-                    <td>@prod.Producer</td>
-                    <td>@prod.Volume</td>
-                    <td>
-                        <a class="btn btn-success" href="product/edit/@prod.Id">Edit</a>
-                        <button class="btn btn-danger" @onclick="@(() => Delete(prod.Id))">Delete</button>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+        }
+    </tbody>
+</table>
 }
 @code {
     Product[] products { get; set; }
