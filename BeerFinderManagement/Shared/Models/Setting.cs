@@ -1,5 +1,5 @@
 ﻿
-namespace BeerFinderApi.Domain
+namespace BeerFinderManagement.Shared.Models
 {
     public class Setting
     {

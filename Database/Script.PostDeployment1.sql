@@ -11,10 +11,9 @@ Post-Deployment Script Template
 */
 
 
-IF NOT EXISTS(SELECT 1 FROM dbo.Setting s
-          WHERE s.[Key] = N'ShowCallForAssistanceBtn')
+IF NOT EXISTS(SELECT 1 FROM dbo.Setting s)
 BEGIN
-    INSERT INTO dbo.Setting VALUES('1','ShowCallForAssistanceBtn')
+    INSERT INTO dbo.Setting VALUES(0)
 END
 
 --IF EXISTS(SELECT 1 FROM dbo.Setting s WHERE s.[Key] = N'SeedMe')

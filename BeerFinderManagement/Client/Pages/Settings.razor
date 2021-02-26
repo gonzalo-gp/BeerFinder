@@ -1,16 +1,57 @@
 ﻿@page "/settings"
+@inject HttpClient client
+@inject IJSRuntime js
+@inject NavigationManager uriHelper
 
 <h1>Settings</h1>
 
-<p>Current count: @currentCount</p>
+@if (settings == null)
+{
+    <text>Loading...</text>
+}
+else if (settings.Length == 0)
+{
+    <text>No Records Found</text>
+}
+else
+{
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <td>
+                    The acces to help button on beer finding site is
+                    @if (settings.FirstOrDefault().IsAssistanceEnabled == false)
+                    {
+                        <text><b>Disabled</b></text>
+                    }
+                    else
+                    {
+                        <text><b>Enabled</b></text>
+                    }
+                </td>
 
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+                <td>
+                    <button class="btn btn-success" @onclick="@(() => ToogleIsEnabled(true))"> Enable Assistance</button>
+                    <button class="btn btn-danger" @onclick="@(() => ToogleIsEnabled(false))"> Disable Assistance</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+}
 
 @code {
-    private int currentCount = 0;
-
-    private void IncrementCount()
+    Setting[] settings { get; set; }
+    protected override async Task OnInitializedAsync()
     {
-        currentCount++;
+        settings = await client.GetFromJsonAsync<Setting[]>("api/setting");
     }
+
+    async Task ToogleIsEnabled(bool isEnabled)
+    {
+        settings.FirstOrDefault().IsAssistanceEnabled = isEnabled;
+        await client.PutAsJsonAsync("api/setting", settings.FirstOrDefault());
+        await js.InvokeVoidAsync("alert", $"Updated Successfully!");
+        uriHelper.NavigateTo("/settings");
+    }
+
 }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BeerFinderApi.Domain;
 using BeerFinderApi.Persistence;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BeerFinderApi.Controllers
 {
@@ -20,33 +21,15 @@ namespace BeerFinderApi.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Setting> All() => _context.Settings;
+        public IEnumerable<Setting> All() => _context.Settings.ToList();
 
-        [HttpPost]
-        public async Task<Setting> Create(Setting sToCreate, CancellationToken c)
+        [HttpPut()]
+        public async Task<Setting> Update(Setting setting)
         {
-            await _context.Settings.AddAsync(sToCreate, c);
-            await _context.SaveChangesAsync(c);
-
-            return sToCreate;
-        }
-
-        [HttpPut("{Id}")]
-        public async Task<Setting> Update(Setting sToUpdate)
-        {
-            _context.Settings.Update(sToUpdate);
+            _context.Settings.Update(setting);
             await _context.SaveChangesAsync();
 
-            return sToUpdate;
-        }
-
-        [HttpDelete]
-        public async Task<Setting> Delete(Setting sToDelete)
-        {
-            _context.Settings.Remove(sToDelete);
-            await _context.SaveChangesAsync();
-
-            return sToDelete;
+            return setting;
         }
     }
 }
